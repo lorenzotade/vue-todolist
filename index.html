@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' integrity='sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==' crossorigin='anonymous'/>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <title>vue-todolist</title>
+</head>
+<body>
+  
+  <div id="app" class="container">
+
+    <div class="logo">
+      <img src="img/bool-logo.png" alt="Logo Boolean">
+    </div>
+
+    <div class="console">
+
+      <h4 class="input-alert" v-if="alertActive">Attenzie: inserisci qualcosa!</h4>
+
+      <input 
+        type="text" 
+        placeholder="Nuovo todo"
+        v-model="todoStr"
+        @keyup.enter="addTodo"
+      >
+      
+      <button @click="addTodo">Inserisci todo</button>
+
+    </div> <!-- /console -->
+
+    <div class="todo-list">
+
+      <ul>
+
+        <li
+          v-for="(todo, index) in todos"
+          :class="todo.checked ? 'checked' : null"
+          @click="todo.checked = !todo.checked"
+        >
+          {{todo.todo}}
+          <h5 v-if="todo.completeAlert" class="list-alert">Attenzione: non hai completato l'attività!</h5>
+
+          <i 
+            class="fas fa-times"
+            @click.stop="(todo.checked) ? removeTodo(index) : displayAlert(index)"
+          ></i>
+        </li> <!-- /elemento di lista -->
+
+      </ul>
+
+    </div> <!-- /todo-list -->
+
+  </div> <!-- /APP -->
+
+
+
+
+
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>

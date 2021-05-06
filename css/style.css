@@ -1,0 +1,74 @@
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* APP */
+.logo, .console {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.logo img {
+  width: 350px;
+}
+
+.console .input-alert {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.console input,
+.console button {
+  margin-right: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  outline: none;
+}
+.console button {
+  cursor: pointer;
+}
+.console button:hover {
+  opacity: .6;
+}
+
+/* LIST */
+.todo-list ul {
+  margin-top: 30px;
+  padding: 20px;
+  list-style: none;
+  background-color: rgba(132, 238,145, .3);
+  border-radius: 10px;
+}
+
+.todo-list ul li {
+  padding: 15px;
+  font-size: 18px;
+  border-bottom: 1px solid lightgrey;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list ul li:last-child {
+  border: 0;
+}
+
+.todo-list ul li i:hover {
+  color: red
+}
+
+.todo-list ul li.checked {
+  color: lightgray;
+  text-decoration: line-through;
+}
+
+.todo-list ul li h5.list-alert {
+  color: red;
+}
